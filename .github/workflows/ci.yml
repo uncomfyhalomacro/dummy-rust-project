@@ -1,0 +1,22 @@
+name: CI for Dummy Rust Project
+
+on: ["push", "pull_request"]
+
+env:
+  CARGO_TERM_COLOR: always
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v4
+    - name: Install Rustup and Rust
+      run: |
+        sudo apt update
+        sudo apt upgrade -y
+        sudo apt install rustup -y
+        rustup install stable
+    - name: Run Rust binary
+      run: |
+        cargo run
