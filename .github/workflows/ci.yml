@@ -23,3 +23,6 @@ jobs:
     - name: Run clippy
       run: |
         cargo clippy
+    - name: Check format
+      run: |
+        cargo fmt --check
